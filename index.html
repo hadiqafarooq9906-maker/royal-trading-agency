@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Trading Agency | Dooru Shahabad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>ROYAL TRADING AGENCY</h1>
+    <p>Gifts • Decoration • Toys • Kashmiri Wedding Services</p>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+        <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Make Every Occasion Royal</h2>
+        <p>Beautiful Gifts, Elegant Decorations and Traditional Kashmiri Wedding Car Decoration.</p>
+        <a href="#products" class="btn">Explore Our Collection</a>
+    </div>
+</section>
+
+<section id="categories">
+    <h2>Our Categories</h2>
+    <div class="category-list">
+        <span>Toys</span>
+        <span>Artificial Flowers</span>
+        <span>Gift Items</span>
+        <span>Wedding Decoration</span>
+        <span>Photo Frames</span>
+        <span>Arabic Calligraphy</span>
+        <span>Home Decoration</span>
+    </div>
+</section>
+
+<section id="products">
+    <h2>Our Products & Services</h2>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="images/teddy.webp" alt="Pink Teddy Bear">
+            <h3>Pink Teddy Bear</h3>
+            <p>Beautiful soft teddy bear for gifting.</p>
+            <p class="price">₹499</p>
+            <button onclick="addToCart('Pink Teddy Bear',499)">Add to Cart</button>
+            <button class="enquire" onclick="enquire('Pink Teddy Bear')">Enquire</button>
+        </div>
+
+        <div class="product">
+            <img src="https://placehold.co/600x450/e8d8c8/654321?text=Artificial+Flowers" alt="Artificial Flowers">
+            <h3>Artificial Flowers</h3>
+            <p>Beautiful flowers for decoration and gifting.</p>
+            <p class="price">₹299</p>
+            <button onclick="addToCart('Artificial Flowers',299)">Add to Cart</button>
+            <button class="enquire" onclick="enquire('Artificial Flowers')">Enquire</button>
+        </div>
+
+        <div class="product">
+            <img src="https://placehold.co/600x450/e8d8c8/654321?text=Gift+Hamper" alt="Gift Hamper">
+            <h3>Gift Hamper</h3>
+            <p>Special gifts for your special occasions.</p>
+            <p class="price">₹899</p>
+            <button onclick="addToCart('Gift Hamper',899)">Add to Cart</button>
+            <button class="enquire" onclick="enquire('Gift Hamper')">Enquire</button>
+        </div>
+
+        <div class="product">
+            <img src="https://placehold.co/600x450/e8d8c8/654321?text=Photo+Frame" alt="Photo Frame">
+            <h3>Photo Frames</h3>
+            <p>Beautiful frames for your memories.</p>
+            <p class="price">₹399</p>
+            <button onclick="addToCart('Photo Frame',399)">Add to Cart</button>
+            <button class="enquire" onclick="enquire('Photo Frame')">Enquire</button>
+        </div>
+
+        <div class="product">
+            <img src="https://placehold.co/600x450/e8d8c8/654321?text=Arabic+Calligraphy" alt="Arabic Calligraphy">
+            <h3>Arabic Calligraphy</h3>
+            <p>Elegant calligraphy and wall decoration.</p>
+            <p class="price">₹699</p>
+            <button onclick="addToCart('Arabic Calligraphy',699)">Add to Cart</button>
+            <button class="enquire" onclick="enquire('Arabic Calligraphy')">Enquire</button>
+        </div>
+
+        <div class="product featured">
+            <img src="images/wedding-car.png" alt="Traditional Kashmiri Wedding Car Decoration">
+            <h3>Traditional Kashmiri Wedding Car Decoration</h3>
+            <p>Beautiful floral arrangements, traditional Kashmiri-inspired embroidery and elegant wedding decorations.</p>
+            <p class="price">Price on Request</p>
+            <button class="enquire" onclick="enquire('Traditional Kashmiri Wedding Car Decoration')">
+                Enquire on WhatsApp
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section id="cart">
+    <h2>Your Shopping Cart</h2>
+    <div id="cart-items">Your cart is empty.</div>
+    <h3>Total: ₹<span id="cart-total">0</span></h3>
+    <button onclick="checkout()">Send Order on WhatsApp</button>
+    <button class="clear" onclick="clearCart()">Clear Cart</button>
+</section>
+
+<section id="contact">
+    <h2>Contact Royal Trading Agency</h2>
+    <p><strong>Location:</strong> Dooru Shahabad, Anantnag, Jammu & Kashmir</p>
+    <p><strong>Phone:</strong> 9906083732</p>
+    <a class="btn" href="tel:9906083732">Call Us</a>
+    <a class="btn whatsapp" href="https://wa.me/919906083732" target="_blank">WhatsApp Us</a>
+</section>
+
+<footer>
+    <h3>ROYAL TRADING AGENCY</h3>
+    <p>Dooru Shahabad, Anantnag, Jammu & Kashmir</p>
+    <p>© 2026 Royal Trading Agency. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

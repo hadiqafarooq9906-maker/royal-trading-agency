@@ -1,0 +1,205 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fffaf2;
+    color: #3d2b20;
+    line-height: 1.6;
+}
+
+header {
+    background: #542d20;
+    color: white;
+    text-align: center;
+    padding: 25px 12px;
+}
+
+header h1 {
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+nav {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e7bd79;
+}
+
+.hero {
+    min-height: 390px;
+    background: linear-gradient(90deg, #542d20dd, #542d2040),
+    url("https://placehold.co/1400x650/79543c/ffffff?text=Royal+Trading+Agency");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 45px 8%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #b77b3e;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.btn:hover, button:hover {
+    background: #75452a;
+}
+
+section {
+    padding: 55px 6%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 29px;
+    color: #713e27;
+    margin-bottom: 25px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.category-list span {
+    background: #ead8c2;
+    padding: 13px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.product {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 15px #00000012;
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product h3 {
+    margin: 12px 0;
+    color: #653b26;
+}
+
+.price {
+    font-weight: bold;
+    color: #a25b28;
+    margin: 10px;
+}
+
+button {
+    border: none;
+    background: #75452a;
+    color: white;
+    padding: 11px 15px;
+    margin: 5px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.enquire {
+    background: #a46c3c;
+}
+
+.featured {
+    border: 2px solid #b77b3e;
+}
+
+#cart {
+    background: #f1e3d1;
+}
+
+.clear {
+    background: #777;
+}
+
+.whatsapp {
+    background: #287b47;
+}
+
+footer {
+    background: #542d20;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 23px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+}
