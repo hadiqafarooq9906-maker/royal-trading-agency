@@ -4,76 +4,104 @@ const SHOP_PHONE = "919906083732";
 let cart = [];
 
 function addToCart(name, price) {
-    cart.push({ name, price });
-    updateCart();
-    alert(name + " added to your cart!");
+  const existingItem = cart.find(item => item.name === name);
+
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      quantity: 1
+    });
+  }
+
+  updateCart();
+  alert(name + " added to your cart!");
 }
 
 function updateCart() {
-    const items = document.getElementById("cart-items");
-    const count = document.getElementById("cart-count");
-    const total = document.getElementById("cart-total");
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
 
-    items.innerHTML = "";
-    let sum = 0;
+  if (cart.length === 0) {
+    cartItems.textContent = "Your cart is empty.";
+    cartTotal.textContent = "Total: ₹0";
+    return;
+  }
 
-    cart.forEach((item, index) => {
-        sum += item.price;
+  cartItems.innerHTML = "";
 
-        const div = document.createElement("p");
-        div.textContent =
-            (index + 1) + ". " + item.name + " - ₹" + item.price;
+  let total = 0;
 
-        items.appendChild(div);
-    });
+  cart.forEach((item, index) => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
 
-    if (cart.length === 0) {
-        items.textContent = "Your cart is empty.";
-    }
+    const line = document.createElement("div");
+    line.className = "cart-line";
 
-    count.textContent = cart.length;
-    total.textContent = sum;
+    const details = document.createElement("span");
+    details.textContent =
+      `${item.name} × ${item.quantity} — ₹${subtotal}`;
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.setAttribute("aria-label", "Remove " + item.name);
+    removeButton.onclick = () => removeFromCart(index);
+
+    line.appendChild(details);
+    line.appendChild(removeButton);
+    cartItems.appendChild(line);
+  });
+
+  cartTotal.textContent = "Total: ₹" + total;
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
 }
 
 function clearCart() {
-    cart = [];
-    updateCart();
+  cart = [];
+  updateCart();
 }
 
-function enquire(product) {
-    const message =
-        "Hello Royal Trading Agency! I want to enquire about " + product + ".";
+function enquire(productName) {
+  const message =
+    `Hello Royal Trading Agency! I am interested in ${productName}. Please share more details.`;
 
-    window.open(
-        "https://wa.me/" + SHOP_PHONE + "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
+  const url =
+    `https://wa.me/${SHOP_PHONE}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
 }
 
 function checkout() {
-    if (cart.length === 0) {
-        alert("Your cart is empty. Please add a product first.");
-        return;
-    }
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add a product first.");
+    return;
+  }
 
-    let message = "Hello Royal Trading Agency! I want to order:\n\n";
-    let total = 0;
+  let message = "Hello Royal Trading Agency! I want to enquire about this order:\n\n";
+  let total = 0;
 
-    cart.forEach((item, index) => {
-        message += (index + 1) + ". " + item.name +
-            " - ₹" + item.price + "\n";
-        total += item.price;
-    });
+  cart.forEach(item => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
 
-    message += "\nTotal: ₹" + total;
-    message += "\nPlease confirm availability and delivery details.";
+    message +=
+      `${item.name} × ${item.quantity} = ₹${subtotal}\n`;
+  });
 
-    window.open(
-        "https://wa.me/" + SHOP_PHONE + "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
+  message += `\nTotal: ₹${total}`;
+  message += "\n\nPlease confirm availability and delivery details.";
+
+  const url =
+    `https://wa.me/${SHOP_PHONE}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
 }
 
 updateCart();
